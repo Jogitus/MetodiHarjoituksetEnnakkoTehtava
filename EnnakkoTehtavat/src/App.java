@@ -1,6 +1,17 @@
+import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
-        onkoKuumetta("Ihminen", 37);
+    Scanner in = new Scanner (System.in);
+// Harjoitus 3
+        String tyyppi = "";
+        int tila = 0;
+
+        System.out.println("Valitse kohde. Kirjoita ihminen, koira tai hevonen.");
+        tyyppi = in.nextLine();
+        System.out.println("Anna lampotila.");
+        tila = Integer.parseInt(in.nextLine());
+        tulostaKuumerajat();
+        onkoKuumetta(tyyppi, tila);
     }
 // Harjoitus 1 
 // Tee tulostaKuumerajat-metodi. Kun metodia kutsutaan, metodi tulostaa konsoliin:
@@ -19,19 +30,19 @@ System.out.println("Hevonen 38");
 // 2.lämpötila (int)
 // Metodi tutkii, onko kohteella kuumetta ja palauttaa tiedon, onko kuumetta (true tai false). 
 // Eli jos metodille lähetetään tiedot ihminen ja 38, metodi palauttaa true, muussa tapauksessa metodi palauttaa false.
-public static boolean  onkoKuumetta (String kohde, int lampotila)
+public static void  onkoKuumetta (String kohde, int lampotila)
 {
     if (kohde.equalsIgnoreCase("Ihminen") && lampotila > 37){
-            return true;
+        System.out.println("Kohteella on kuumetta.");
         } else if (kohde.equalsIgnoreCase("Koira") && lampotila > 39)
     {
-            return true;
+        System.out.println("Kohteella on kuumetta.");
     } else if (kohde.equalsIgnoreCase("Hevonen") && lampotila > 38)
     {
-            return true;
+            System.out.println("Kohteella on kuumetta.");
     } else 
     {
-            return false;
+            System.out.println("Kohteella ei ole kuumetta.");
     }
 }
 }
