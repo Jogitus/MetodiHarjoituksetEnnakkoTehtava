@@ -11,7 +11,11 @@ public class App {
         System.out.println("Anna lampotila.");
         tila = Integer.parseInt(in.nextLine());
         tulostaKuumerajat();
-        onkoKuumetta(tyyppi, tila);
+        if(onkoKuumetta(tyyppi, tila)){
+            System.out.println("Kohteella on kuumetta.");
+        } else {
+            System.out.println("Kohteella ei ole kuumetta.");
+        }
     }
 // Harjoitus 1 
 // Tee tulostaKuumerajat-metodi. Kun metodia kutsutaan, metodi tulostaa konsoliin:
@@ -30,19 +34,19 @@ System.out.println("Hevonen 38");
 // 2.lämpötila (int)
 // Metodi tutkii, onko kohteella kuumetta ja palauttaa tiedon, onko kuumetta (true tai false). 
 // Eli jos metodille lähetetään tiedot ihminen ja 38, metodi palauttaa true, muussa tapauksessa metodi palauttaa false.
-public static void  onkoKuumetta (String kohde, int lampotila)
+public static boolean onkoKuumetta (String kohde, int lampotila)
 {
     if (kohde.equalsIgnoreCase("Ihminen") && lampotila > 37){
-        System.out.println("Kohteella on kuumetta.");
+        return true;
         } else if (kohde.equalsIgnoreCase("Koira") && lampotila > 39)
     {
-        System.out.println("Kohteella on kuumetta.");
+        return true;
     } else if (kohde.equalsIgnoreCase("Hevonen") && lampotila > 38)
     {
-            System.out.println("Kohteella on kuumetta.");
+            return true;
     } else 
     {
-            System.out.println("Kohteella ei ole kuumetta.");
+            return false;
     }
 }
 }
